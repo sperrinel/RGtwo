@@ -50,3 +50,8 @@ body {
 li {
   font-style: italic;
 }
+
+img {
+  max-width: 40%;
+  height: auto;
+}

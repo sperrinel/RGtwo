@@ -1,5 +1,9 @@
+import { ExposantsService } from 'src/app/services/exposants.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Exposant } from 'src/app/models/exposant';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add',
@@ -7,28 +11,43 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
+  //1) RECUP DONNES FORM
+  //2) PASSER CES DONNEES AUX ATTRIBUTS DE L OBJET EXPOSANT
+  //3) PASSER L OBJET DANS LE TABLEAU DES EXPOSANTS AVEC UN PUSH
+  //4) ENREGISTRER EN BDD ET EMIT POUR AVERTIR DU CHANGEMENT
+
+  exposantsSubscription: Subscription;
+  exposants: Exposant[];
   fileIsUploading = false;
   fileUrl: string =
-    'https://firebasestorage.googleapis.com/v0/b/bibliotheque-7677f.appspot.com/o/images%2Fdefaut.png?alt=media&token=96ad9f97-d524-4092-933a-9693876cca70';
+    'https://firebasestorage.googleapis.com/v0/b/rencontresgourmandespg.appspot.com/o/images%2Fcat.jpg?alt=media&token=be7306ce-3dcf-4741-874f-d708a26f7f57';
   fileUploaded = false;
 
-  constructor() {}
+  constructor(
+    private exposantsService: ExposantsService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.exposantsSubscription =
+      this.exposantsService.exposantsSubject.subscribe(
+        (exposants: Exposant[]) => (this.exposants = exposants)
+      );
+    this.exposantsService.emitExposantsSubject();
+  }
 
   onSubmit(form: NgForm) {
-    /* console.log('je suis dans onSubmit')
-    const id = this.livres.length;
-    const nom = form.value["name"];
-    const auteur = form.value["author"];
-    const description = form.value["description"];
-    const image = this.fileUrl
+    const id = this.exposants.length;
+    const nom = form.value['nom'];
+    const description = form.value['description'];
+    const image = this.fileUrl;
 
-    const nouveauLivre = new Livre(id, nom, auteur, description, image);
+    const nouveauExposant = new Exposant(id, nom, description, image);
 
-    this.livresService.addLivre(nouveauLivre);
-    this.onSave()
-    this.onClose()*/
+    this.exposantsService.addExposant(nouveauExposant);
+    console.log(this.exposantsService.exposants);
+
+    this.router.navigate(['/home']);
   }
 
   onUploadFile(file: File) {
