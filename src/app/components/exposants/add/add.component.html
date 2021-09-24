@@ -1,1 +1,226 @@
-<p>add works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <div class="container formBox">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6 bg-light boxStyle">
+          <form name="theform" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+              <h4>Ajouter un exposant</h4>
+              <div class="width30 floatL"><label>Nom</label></div>
+              <div class="width70 floatR">
+                <input
+                  id="firstname"
+                  class="width100 form-control"
+                  name="nom"
+                  type="text"
+                  value=""
+                  size="20"
+                  ngModel
+                  required
+                />
+              </div>
+              <br /><br />
+              <div class="form-group">
+                <div class="width30 floatL"><label>Description</label></div>
+                <div class="width70 floatR">
+                  <textarea
+                    class="width100 form-control"
+                    name="description"
+                    type="text"
+                    value=""
+                    size="20"
+                    ngModel
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <br /><br /><br />
+              <div class="form-group">
+                <div class="width30 floatL">
+                  <label>Ajouter une photo</label>
+                </div>
+                <div class="width70 floatR">
+                  <input
+                    type="file"
+                    (change)="detectFiles($event)"
+                    class="form-control"
+                    accept="image/*"
+                    name="image"
+                  />
+                  <p class="text-success" *ngIf="fileUploaded">
+                    Fichier chargé !
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--        <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>Age</label></div>
+              <div class="width70 floatR">
+                <input
+                  class="width100 form-control"
+                  name="age"
+                  type="text"
+                  value=""
+                  size="20"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>Address</label></div>
+              <div class="width70 floatR">
+                <input
+                  class="width100 form-control"
+                  name="address"
+                  type="text"
+                  value=""
+                  size="20"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>Country</label></div>
+              <div class="width70 floatR">
+                <input
+                  class="width100 form-control"
+                  name="country"
+                  type="text"
+                  value=""
+                  size="20"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>Password</label></div>
+              <div class="width70 floatR">
+                <input
+                  class="width100 form-control"
+                  name="password"
+                  size="20"
+                  type="password"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>R-Password</label></div>
+              <div class="width70 floatR">
+                <input
+                  class="width100 form-control"
+                  name="password2"
+                  type="password"
+                  size="20"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="form-group">
+              <div class="width30 floatL"><label>Interests:</label></div>
+            </div>
+            <div class="width70 floatR">
+              <div class="form-group">
+                <input name="ch" value="travel" type="radio" />
+                <label for="customRadio">Travel</label>
+                <input name="ch" value="reading" type="radio" />
+                <label for="customRadio">Reading</label>
+                <input name="ch" value="swimming" type="radio" />
+                <label for="customRadio">Swimming</label>
+              </div>
+            </div> -->
+            <br /><br /><br />
+
+            <div class="form-group">
+              <div class="row">
+                <div class="width50">
+                  <input
+                    class="btn btn-success"
+                    type="submit"
+                    value="Valider"
+                    style="font-weight: bold"
+                  />
+                </div>
+                <div class="width50">
+                  <input
+                    class="btn btn-primary"
+                    type="reset"
+                    style="font-weight: bold"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function validate() {
+        var alertText = "";
+        var f = theform.ch.value;
+        var r = theform.ch.value;
+        var s = theform.ch.value;
+        var fn = document.getElementById("firstname").value;
+        var ln = theform.lastname.value;
+        var m = theform.email.value;
+        var co = theform.country.value;
+        var ag = theform.age.value;
+        var ad = theform.address.value;
+        if (fn === "") {
+          alertText = alertText + "1-please enter firstname\n";
+        }
+        if (ln === "") {
+          alertText += "2-please enter lastname\n";
+        }
+        if (m === "") {
+          alertText += "3-please enter email\n";
+        }
+        if (ag === "") {
+          alertText += " 4-please enter Age\n";
+        }
+        if (ad === "") {
+          alertText += "5- please enter adress\n";
+        }
+        if (co === "") {
+          alertText += "6-please enter country\n";
+        }
+        if (isNaN(ag)) {
+          window.alert(" The Age NOT Number");
+        }
+        var group = theform.ch;
+        for (var i = 0; i < group.length; i++) {
+          if (group[i].checked) break;
+        }
+        if (i == group.length) {
+          alertText += "7-please enter interests\n";
+        }
+
+        if (alertText !== "") {
+          window.alert(alertText);
+        }
+        if (m.indexOf("@") == -1 && m.indexOf("\.") == -1)
+          window.alert("The Email without the @ and dot");
+      } //end function
+    </script>
+  </body>
+</html>

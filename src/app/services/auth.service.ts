@@ -27,6 +27,8 @@ export class AuthService {
   logout() {
     firebase.auth().signOut();
     localStorage.removeItem('user');
+    this.isAuth = false;
+    this.emitIsAuthSubject();
   }
 
   emitIsAuthSubject() {

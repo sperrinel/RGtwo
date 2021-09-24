@@ -25,8 +25,16 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/home']">Contact</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuth === false">
         <a class="nav-link" [routerLink]="['/auth']">Se connecter</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuth === true">
+        <a class="nav-link" [routerLink]="['/add']">Ajouter un exposant</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuth === true">
+        <button class="btn btn-primary" (click)="logout()">
+          Se déconnecter
+        </button>
       </li>
     </ul>
   </div>
