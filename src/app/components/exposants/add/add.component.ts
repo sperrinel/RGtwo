@@ -51,15 +51,12 @@ export class AddComponent implements OnInit {
   }
 
   onUploadFile(file: File) {
-    /*
     this.fileIsUploading = true;
-    this.livresService.uploadFile(file).then(
-      (url: any) => {
-        this.fileUrl = url;
-        this.fileIsUploading = false;
-        this.fileUploaded = true;
-      }
-    ); */
+    this.exposantsService.uploadFile(file).then((url: any) => {
+      this.fileUrl = url;
+      this.fileIsUploading = false;
+      this.fileUploaded = true;
+    });
   }
 
   detectFiles(event: any) {

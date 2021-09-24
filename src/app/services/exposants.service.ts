@@ -40,4 +40,46 @@ export class ExposantsService {
         this.emitExposantsSubject();
       });
   }
+
+  uploadFile(file: File) {
+    return new Promise((resolve, reject) => {
+      const almostUniqueFileName = Date.now().toString();
+      const upload = firebase
+        .storage()
+        .ref()
+        .child('images/' + almostUniqueFileName + file.name)
+        .put(file);
+      upload.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        () => {
+          console.log('Chargement…');
+        },
+        (error) => {
+          console.log('Erreur de chargement ! : ' + error);
+          reject();
+        },
+        () => {
+          resolve(upload.snapshot.ref.getDownloadURL());
+        }
+      );
+    });
+  }
+
+  //Récupère un seul exposant
+  getSingleExposant(id: number) {
+    return new Promise<Exposant>((resolve, reject) => {
+      firebase
+        .database()
+        .ref('/exposants/' + id)
+        .once('value')
+        .then(
+          (data: DataSnapshot) => {
+            resolve(data.val());
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+    });
+  }
 }

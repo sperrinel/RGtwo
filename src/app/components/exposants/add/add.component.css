@@ -25,6 +25,7 @@
   margin-right: -20px;
 }
 .boxStyle {
+  margin-top: 10%;
   padding: 20px;
   border-radius: 25px;
   border-top: 6px solid #3599dc;
@@ -32,7 +33,6 @@
 }
 
 .formBox {
-  margin-top: 40px;
 }
 
 body {

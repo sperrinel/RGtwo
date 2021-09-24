@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import * as $ from 'jquery';
+import firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,21 +11,28 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isAuthSubscription: Subscription;
   isAuth: boolean = false;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.isAuthSubscription = this.authService.isAuthSubject.subscribe(
-      (isAuth: any) => {
-        this.isAuth = isAuth;
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isAuth = true;
+      } else {
+        this.isAuth = false;
       }
-    );
-    this.authService.emitIsAuthSubject();
-    console.log('dis moi true please' + this.authService.isAuth);
+    });
   }
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['/home']);
+  }
+
+  activeClass() {
+    $('#mainMenu li a').on('click', function () {
+      $('#mainMenu li a.active').removeClass('active');
+      $(this).addClass('active');
+    });
   }
 }

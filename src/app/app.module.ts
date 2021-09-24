@@ -13,11 +13,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailsComponent } from './components/exposants/details/details.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'add', component: AddComponent },
+  { path: 'delete', component: DeleteComponent },
+  { path: 'details/:id', component: DetailsComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
@@ -34,6 +37,7 @@ const appRoutes: Routes = [
     NotFoundComponent,
     NavbarComponent,
     HomeComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

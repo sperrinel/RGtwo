@@ -14,7 +14,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  authStatus: boolean = false;
   validationFormUser!: FormGroup;
   errorMessage: any;
 
@@ -39,7 +38,6 @@ export class AuthComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authStatus = this.authService.isAuth;
     this.validationFormUser = this.formBuilder.group({
       email: new FormControl(
         '',
@@ -59,7 +57,6 @@ export class AuthComponent implements OnInit {
     return new Promise<void>((resolve, reject) => {
       this.authService.loginFireauth(value).then(
         () => {
-          this.authService.isAuth = true;
           this.router.navigate(['/home']);
           resolve();
         },
