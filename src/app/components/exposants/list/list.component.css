@@ -55,3 +55,7 @@ img {
   max-width: 40%;
   height: auto;
 }
+
+.btnEdit {
+  float: right;
+}

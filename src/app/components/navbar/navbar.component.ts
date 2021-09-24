@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import * as $ from 'jquery';
 import firebase from 'firebase';
@@ -21,6 +20,8 @@ export class NavbarComponent implements OnInit {
       } else {
         this.isAuth = false;
       }
+      this.authService.isAuth = this.isAuth;
+      this.authService.emitIsAuthSubject();
     });
   }
 

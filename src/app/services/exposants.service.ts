@@ -82,4 +82,16 @@ export class ExposantsService {
         );
     });
   }
+
+  updateLivre(idExposant: number, exposant: Exposant) {
+    firebase
+      .database()
+      .ref('exposants/' + idExposant)
+      .set({
+        id: exposant.id,
+        nom: exposant.nom,
+        description: exposant.description,
+        image: exposant.image,
+      });
+  }
 }

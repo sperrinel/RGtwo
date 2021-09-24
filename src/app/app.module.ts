@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'add', component: AddComponent },
   { path: 'delete', component: DeleteComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'edit', component: EditComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];

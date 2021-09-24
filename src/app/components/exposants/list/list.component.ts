@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Exposant } from 'src/app/models/exposant';
+import { AuthService } from 'src/app/services/auth.service';
 import { ExposantsService } from 'src/app/services/exposants.service';
 
 @Component({
@@ -9,11 +10,29 @@ import { ExposantsService } from 'src/app/services/exposants.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  isAuth: boolean = false;
+  isAuthSubscription: Subscription;
   exposantsSubscription: Subscription;
   exposants!: Exposant[];
-  constructor(private exposantsService: ExposantsService) {}
+  constructor(
+    private exposantsService: ExposantsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.isAuthSubscription = this.authService.isAuthSubject.subscribe(
+      (isAuth: any) => {
+        this.isAuth = isAuth;
+      },
+      (error: any) => {
+        console.log('Erreur : ' + error);
+      },
+      () => {
+        console.log('Observable complété');
+      }
+    );
+    this.authService.emitIsAuthSubject();
+
     this.exposantsSubscription =
       this.exposantsService.exposantsSubject.subscribe(
         (exposants: Exposant[]) => {

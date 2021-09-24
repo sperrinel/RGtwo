@@ -6,6 +6,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  isAuth: boolean = false;
+  isAuthSubject = new Subject<boolean>();
   constructor() {}
 
   //Connexion
@@ -25,5 +27,9 @@ export class AuthService {
   logout() {
     firebase.auth().signOut();
     localStorage.removeItem('user');
+  }
+
+  emitIsAuthSubject() {
+    this.isAuthSubject.next(this.isAuth);
   }
 }
