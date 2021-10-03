@@ -1,0 +1,51 @@
+/*
+footer {
+  width: 100%;
+  background-color: #291f6494;
+  min-height: 150px;
+  padding: 10px 0px 25px 0px;
+}
+
+.foote_bottom_ul_amrc {
+  list-style-type: none;
+  padding: 0px;
+  display: table;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+}
+
+.foote_bottom_ul_amrc li {
+  display: inline;
+}
+
+.foote_bottom_ul_amrc li a {
+  color: #999;
+  margin: 0 12px;
+}
+
+.social_footer_ul {
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+}
+
+.social_footer_ul li {
+  float: left;
+}
+
+.social_footer_ul li a {
+  color: #ccc;
+  border: 1px solid #ccc;
+  border: none;
+}
+
+.social_footer_ul li i {
+  width: 50px;
+  font-size: 22px;
+}
+
+p {
+  color: white;
+} # sourceMappingURL=footer.component.css.map */

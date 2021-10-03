@@ -42,20 +42,41 @@ ol.custom-numbers li::before {
 *
 */
 body {
-  min-height: 100vh;
-  background-color: #6190e8;
-  background-image: linear-gradient(to right, #5784d7 0%, #a7bfe8 100%);
+  /* min-height: 100vh;
+  background-color: #6190e8; */
+  /* background-image: linear-gradient(to right, #d75757 0%, #e8a7a7 100%); */
+  background-image: url("/assets/photos/background-page/background-home.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 li {
   font-style: italic;
 }
 
-img {
-  max-width: 40%;
+.img-exposant {
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  min-height: 200px;
   height: auto;
+  margin-right: 25px;
 }
 
-.btnEdit {
+.btnEdit,
+.btnDelete {
+  font-size: 25px;
   float: right;
+  border: none;
+}
+
+.btnDelete {
+  margin-left: 10px;
+  color: grey;
+}
+
+.description-exposant {
+  align-items: flex-start !important;
 }

@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './components/exposants/details/details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
   { path: 'add', component: AddComponent },
   { path: 'delete', component: DeleteComponent },
   { path: 'details/:id', component: DetailsComponent },
-  { path: 'edit', component: EditComponent },
+  { path: 'exposants', component: EditComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomeComponent,
     DetailsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

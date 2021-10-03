@@ -20,7 +20,7 @@ export class AddComponent implements OnInit {
   exposants: Exposant[];
   fileIsUploading = false;
   fileUrl: string =
-    'https://firebasestorage.googleapis.com/v0/b/rencontresgourmandespg.appspot.com/o/images%2Fcat.jpg?alt=media&token=be7306ce-3dcf-4741-874f-d708a26f7f57';
+    'https://firebasestorage.googleapis.com/v0/b/rencontresgourmandespg.appspot.com/o/images%2Fimg-par-defaut.png?alt=media&token=e739253a-216a-45f5-b111-0bd65892d634';
   fileUploaded = false;
 
   constructor(

@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+    <app-list (idExposantEdit)="getExposantId($event)"></app-list>
     <!-- Modal - Fonctionne grâce à un import bootstrap dans le script angular.json  (eteindre et relancer le serveur)-->
     <div
       class="modal fade"
@@ -20,7 +21,9 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Modifier les informations de l'exposant
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -28,16 +31,61 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Understood</button>
+          <div class="modal-body">
+            <form *ngIf="exposant" (ngSubmit)="onSubmit(f)" #f="ngForm">
+              <img
+                *ngIf="exposant.image"
+                src="{{ exposant.image }}"
+                alt="image de l'exposant"
+              />
+              <div class="mt-3">
+                <label>Modifier la photo</label>
+                <input
+                  type="file"
+                  style="margin-top: 20px"
+                  (change)="detectFiles($event)"
+                  class="form-control"
+                  accept="image/*"
+                  name="image"
+                />
+                <p class="text-success" *ngIf="fileUploaded">
+                  Fichier chargé !
+                </p>
+              </div>
+              <br />
+              <label>Nom:</label><br />
+              <input
+                type="text"
+                name="nom"
+                placeholder="{{ exposant.nom }}"
+                [(ngModel)]="exposant.nom"
+              /><br /><br />
+              <label>Description:</label><br />
+              <textarea
+                type="text"
+                name="description"
+                placeholder="{{ exposant.description }}"
+                [(ngModel)]="exposant.description"
+              ></textarea
+              ><br /><br /><br />
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Fermer
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="fileIsUploading"
+                >
+                  Valider
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
