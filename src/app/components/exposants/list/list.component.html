@@ -35,14 +35,14 @@
                 class="btn btn-outline-primary btnEdit"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
-                (click)="sendNotification(exposant.id)"
+                (click)="sendNotification(i)"
               >
                 <i class="fa fa-fw fa-edit"></i>
               </button>
               <h4
                 class="mb-4"
                 style="cursor: pointer"
-                [routerLink]="['/details/', exposant.id]"
+                [routerLink]="['/details/', i]"
               >
                 {{ exposant.nom }}
               </h4>
@@ -56,12 +56,47 @@
                       alt="image de l'exposant"
                     />
                   </li>
-                  <li
-                    class="mb-3 d-flex align-items-center description-exposant"
-                  >
-                    <!-- <i class="fa fa-hourglass-end mr-3 text-primary"></i -->
-                    {{ exposant.description }}
-                  </li>
+                  <div class="container" class="responsive-container">
+                    <div class="row h-75">
+                      <li
+                        id="description"
+                        class="
+                          mb-3
+                          d-flex
+                          align-items-center
+                          description-exposant
+                        "
+                      >
+                        <!-- <i class="fa fa-hourglass-end mr-3 text-primary"></i -->
+                        {{ exposant.description }}
+                      </li>
+                    </div>
+                    <div
+                      *ngIf="exposant.telephone || exposant.email"
+                      class="row h-25"
+                      style="display: flex"
+                    >
+                      <h5>Coordonnées :</h5>
+                      <span
+                        *ngIf="exposant.telephone"
+                        class="coordonnees-exposant"
+                      >
+                        <i class="fa fa-fw fa-phone"></i>
+                        {{ exposant.telephone }}
+                      </span>
+                      <span
+                        *ngIf="exposant.portable"
+                        class="coordonnees-exposant"
+                      >
+                        <i class="fa fa-fw fa-mobile"></i>
+                        {{ exposant.portable }}
+                      </span>
+                      <span *ngIf="exposant.email" class="coordonnees-exposant">
+                        <i class="fa fa-fw fa-laptop"></i>
+                        {{ exposant.email }}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </ul>
             </div>

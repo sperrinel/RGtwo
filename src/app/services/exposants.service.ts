@@ -94,6 +94,9 @@ export class ExposantsService {
         nom: exposant.nom,
         description: exposant.description,
         image: exposant.image,
+        telephone: exposant.telephone,
+        portable: exposant.portable,
+        email: exposant.email,
       });
   }
 

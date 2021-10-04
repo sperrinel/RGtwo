@@ -2,3 +2,8 @@ html,
 body {
   min-height: 100%;
 }
+
+@font-face {
+  font-family: Congratulations;
+  src: url(/assets/fonts/Congratulations_DEMO.ttf) format("opentype");
+}

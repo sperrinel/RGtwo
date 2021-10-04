@@ -10,7 +10,7 @@ import { ExposantsService } from 'src/app/services/exposants.service';
 })
 export class DetailsComponent implements OnInit {
   exposant: Exposant = {
-    id: 0,
+    id: '',
     nom: '',
     description: '',
     image: '',
@@ -27,12 +27,13 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.Activateroute.snapshot.params['id'];
-    console.log(id);
-    this.exposantsService.getSingleExposant(+id).then((exposant: Exposant) => {
-      this.exposant = exposant;
-      this.fileUrl = this.exposant.image;
-    });
+    const index = this.Activateroute.snapshot.params['index'];
+    this.exposantsService
+      .getSingleExposant(index)
+      .then((exposant: Exposant) => {
+        this.exposant = exposant;
+        this.fileUrl = this.exposant.image;
+      });
   }
 
   onBack() {

@@ -62,8 +62,9 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   //Récupère l'id de l'exposant grâce au btn activation de la modal de l'HTML et le donne à la modal via un eventEmitter
-  sendNotification(id) {
-    this.idExposantEdit.emit(id);
+  sendNotification(index) {
+    console.log("J'envoie un index égal à : " + index);
+    this.idExposantEdit.emit(index);
   }
 
   //supprime exposant

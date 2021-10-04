@@ -67,7 +67,31 @@
                 placeholder="{{ exposant.description }}"
                 [(ngModel)]="exposant.description"
               ></textarea
-              ><br /><br /><br />
+              ><br /><br />
+              <label>Telephone fixe:</label><br />
+              <input
+                type="string"
+                name="telephone"
+                placeholder="{{ exposant.telephone }}"
+                [(ngModel)]="exposant.telephone"
+              />
+              <br /><br />
+              <label>Portable:</label><br />
+              <input
+                type="string"
+                name="portable"
+                placeholder="{{ exposant.portable }}"
+                [(ngModel)]="exposant.portable"
+              />
+              <br /><br />
+              <label>Email:</label><br />
+              <input
+                type="email"
+                name="email"
+                placeholder="{{ exposant.email }}"
+                [(ngModel)]="exposant.email"
+              />
+              <br /><br /><br />
 
               <div class="modal-footer">
                 <button

@@ -20,8 +20,6 @@ export class EditComponent implements OnInit {
   constructor(private exposantsService: ExposantsService) {}
 
   ngOnInit(): void {
-    console.log('id exposant : ' + this.idExposant);
-
     /* this.exposantsService.getSingleExposant(+id).then((exposant: Exposant) => {
       this.exposant = exposant;
       this.copieExposant = exposant;
@@ -36,10 +34,21 @@ export class EditComponent implements OnInit {
     const nom = form.value['nom'];
     const description = form.value['description'];
     const image = this.fileUrl;
+    const telephone = form.value['telephone'];
+    const portable = form.value['portable'];
+    const email = form.value['email'];
 
-    const exposant = new Exposant(id, nom, description, image);
+    const exposant = new Exposant(
+      id,
+      nom,
+      description,
+      image,
+      telephone,
+      portable,
+      email
+    );
 
-    this.exposantsService.updateExposant(id, exposant);
+    this.exposantsService.updateExposant(this.idExposant, exposant);
   }
 
   detectFiles(event: any) {
@@ -56,15 +65,17 @@ export class EditComponent implements OnInit {
     });
   }
 
-  getExposantId(event: any) {
+  getExposantId(event: number) {
+    console.log('Jreçoit un index égal à : ' + event);
     this.exposantsService
-      .getSingleExposant(+event)
+      .getSingleExposant(event)
       .then((exposant: Exposant) => {
         this.exposant = exposant;
         this.copieExposant = exposant;
         this.fileUrl = this.exposant.image;
         this.copieFileUrl = this.exposant.image;
-        console.log(this.exposant);
+        this.idExposant = event;
+        console.log('idExposant est égal à : ' + this.idExposant);
       });
   }
 }

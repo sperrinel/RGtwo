@@ -11,10 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  //1) RECUP DONNES FORM
-  //2) PASSER CES DONNEES AUX ATTRIBUTS DE L OBJET EXPOSANT
-  //3) PASSER L OBJET DANS LE TABLEAU DES EXPOSANTS AVEC UN PUSH
-  //4) ENREGISTRER EN BDD ET EMIT POUR AVERTIR DU CHANGEMENT
+  uniqueID = '';
 
   exposantsSubscription: Subscription;
   exposants: Exposant[];
@@ -29,6 +26,7 @@ export class AddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.uniqueID = this.generateUniqueID();
     this.exposantsSubscription =
       this.exposantsService.exposantsSubject.subscribe(
         (exposants: Exposant[]) => (this.exposants = exposants)
@@ -37,15 +35,25 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const id = this.exposants.length;
+    const id = this.uniqueID;
     const nom = form.value['nom'];
     const description = form.value['description'];
     const image = this.fileUrl;
+    const telephone = form.value['telephone'];
+    const portable = form.value['portable'];
+    const email = form.value['email'];
 
-    const nouveauExposant = new Exposant(id, nom, description, image);
+    const nouveauExposant = new Exposant(
+      id,
+      nom,
+      description,
+      image,
+      telephone,
+      portable,
+      email
+    );
 
     this.exposantsService.addExposant(nouveauExposant);
-    console.log(this.exposantsService.exposants);
 
     this.router.navigate(['/home']);
   }
@@ -61,5 +69,16 @@ export class AddComponent implements OnInit {
 
   detectFiles(event: any) {
     this.onUploadFile(event.target.files[0]);
+  }
+
+  generateUniqueID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+      /[xy]/g,
+      function (c) {
+        var r = (Math.random() * 16) | 0,
+          v = c == 'x' ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      }
+    );
   }
 }

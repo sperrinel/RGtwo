@@ -1,0 +1,24 @@
+#carouselExampleControls {
+  margin: 0 auto;
+  padding: 4%;
+}
+
+img {
+  min-width: 50%;
+  min-height: 50%;
+  max-width: 900px;
+  max-height: 700px;
+  margin: 0 auto;
+  border-style: groove;
+}
+
+i {
+  font-size: 40px;
+  color: rgb(0, 132, 255);
+}
+
+@media screen and (min-width: 0px) and (max-width: 1220px) {
+  img {
+    margin-top: 15% !important;
+  }
+}

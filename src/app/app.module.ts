@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/exposants/list/list.component';
 import { AddComponent } from './components/exposants/add/add.component';
 import { EditComponent } from './components/exposants/edit/edit.component';
-import { DeleteComponent } from './components/exposants/delete/delete.component';
 import { UpdateComponent } from './components/exposants/update/update.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -15,14 +14,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './components/exposants/details/details.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { OnParleDeNousComponent } from './components/on-parle-de-nous/on-parle-de-nous.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'add', component: AddComponent },
-  { path: 'delete', component: DeleteComponent },
-  { path: 'details/:id', component: DetailsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'details/:index', component: DetailsComponent },
   { path: 'exposants', component: EditComponent },
+  { path: 'articles', component: OnParleDeNousComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
@@ -33,7 +35,6 @@ const appRoutes: Routes = [
     ListComponent,
     AddComponent,
     EditComponent,
-    DeleteComponent,
     UpdateComponent,
     AuthComponent,
     NotFoundComponent,
@@ -41,11 +42,13 @@ const appRoutes: Routes = [
     HomeComponent,
     DetailsComponent,
     FooterComponent,
+    OnParleDeNousComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }),
     ReactiveFormsModule,
   ],
   providers: [],

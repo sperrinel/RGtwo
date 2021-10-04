@@ -55,19 +55,29 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/home']" (click)="activeClass()"
+            <a
+              id="articlesss"
+              class="nav-link"
+              [routerLink]="['/articles']"
+              (click)="activeClass()"
               >On parle de nous</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/home']" (click)="activeClass()"
-              >Le passeport gourmand</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link"
-              [routerLink]="['/delete']"
+              href="https://pays-de-loire.lepasseportgourmand.fr/"
+              target="_blank"
+              (click)="activeClass()"
+              >Le Passeport Gourmand</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              style="cursor: pointer"
+              id="goToContact"
+              class="nav-link"
+              (click)="goToContact()"
               (click)="activeClass()"
               >Contact</a
             >

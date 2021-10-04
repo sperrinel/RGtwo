@@ -36,4 +36,30 @@ export class NavbarComponent implements OnInit {
       $(this).addClass('active');
     });
   }
+
+  goToContact() {
+    $('#goToContact').click(function () {
+      $('html,body').animate(
+        {
+          scrollTop: $('footer').offset().top,
+        },
+        'fast'
+      );
+    });
+    this.flashItem();
+  }
+
+  flashItem() {
+    setTimeout(() => {
+      $('.contactFlash')
+        .fadeOut(400)
+        .fadeIn(400)
+        .fadeOut(400)
+        .fadeIn(400)
+        .fadeOut(400)
+        .fadeIn(400)
+        .fadeOut(400)
+        .fadeIn(400);
+    }, 2000);
+  }
 }
