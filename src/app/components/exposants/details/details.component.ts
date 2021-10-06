@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
   exposant: Exposant = {
     id: '',
     nom: '',
+    categorie: '',
     description: '',
     image: '',
   };

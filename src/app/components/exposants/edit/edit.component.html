@@ -66,8 +66,16 @@
                 name="description"
                 placeholder="{{ exposant.description }}"
                 [(ngModel)]="exposant.description"
-              ></textarea
-              ><br /><br />
+              ></textarea>
+              <br /><br />
+              <label>Catégorie:</label><br />
+              <input
+                type="text"
+                name="categorie"
+                placeholder="{{ exposant.categorie }}"
+                [(ngModel)]="exposant.categorie"
+              />
+              <br /><br />
               <label>Telephone fixe:</label><br />
               <input
                 type="string"
@@ -90,6 +98,15 @@
                 name="email"
                 placeholder="{{ exposant.email }}"
                 [(ngModel)]="exposant.email"
+              />
+
+              <br /><br />
+              <label>Site web:</label><br />
+              <input
+                type="text"
+                name="siteweb"
+                placeholder="{{ exposant.siteweb }}"
+                [(ngModel)]="exposant.siteweb"
               />
               <br /><br /><br />
 

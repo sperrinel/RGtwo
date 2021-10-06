@@ -37,20 +37,24 @@ export class AddComponent implements OnInit {
   onSubmit(form: NgForm) {
     const id = this.uniqueID;
     const nom = form.value['nom'];
+    const categorie = form.value['categorie'];
     const description = form.value['description'];
     const image = this.fileUrl;
     const telephone = form.value['telephone'];
     const portable = form.value['portable'];
     const email = form.value['email'];
+    const siteweb = form.value['siteweb'];
 
     const nouveauExposant = new Exposant(
       id,
       nom,
+      categorie,
       description,
       image,
       telephone,
       portable,
-      email
+      email,
+      siteweb
     );
 
     this.exposantsService.addExposant(nouveauExposant);

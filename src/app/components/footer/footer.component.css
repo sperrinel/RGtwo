@@ -49,3 +49,11 @@ footer {
 p {
   color: white;
 } # sourceMappingURL=footer.component.css.map */
+
+.fa-mobile {
+  font-size: 20px;
+}
+
+#p-mobile {
+  margin-left: -5px;
+}

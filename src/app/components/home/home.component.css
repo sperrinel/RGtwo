@@ -1,8 +1,30 @@
+strong {
+  color: #c4cb00;
+}
+
+p {
+  margin: -2% 10% 2% 10%; /* haut, droite, bas, gauche (comme une horloge) */
+  text-align: justify;
+  font-size: 25px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 622px) {
+  p {
+    font-size: 18px;
+  }
+}
+
 .bandeau {
   width: 100%;
   height: 350px;
   margin-top: 2%;
   -webkit-box-shadow: 0 8px 6px -6px #6e6767ad;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1177px) {
+  .bandeau {
+    height: 100%;
+  }
 }
 
 .btn {
@@ -25,6 +47,10 @@
 
 h4 {
   font-size: 42px;
+}
+
+h4,
+h1 {
   color: #e40137;
   text-align-last: center;
   margin-top: 10px;

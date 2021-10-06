@@ -92,11 +92,13 @@ export class ExposantsService {
       .set({
         id: exposant.id,
         nom: exposant.nom,
+        categorie: exposant.categorie,
         description: exposant.description,
         image: exposant.image,
         telephone: exposant.telephone,
         portable: exposant.portable,
         email: exposant.email,
+        siteweb: exposant.siteweb,
       });
   }
 

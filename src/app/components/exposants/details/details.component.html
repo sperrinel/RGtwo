@@ -15,8 +15,47 @@
   <title>Détails sur {{ exposant.nom }}</title>
 </head>
 
-<body id="body-edit-livre">
+<body id="body-detail-exposant">
   <div class="container">
+    <div class="row">
+      <div>
+        <button class="btn btn-default btn-retour" (click)="onBack()">
+          <i class="fa fa-fw fa-arrow-left"></i><strong> Retour</strong>
+        </button>
+      </div>
+      <div class="col-sm-12 text-center">
+        <img src="{{ exposant.image }}" />
+      </div>
+      <div class="col-xs-12" id="div-description">
+        <label id="label-description">Description: </label>
+        <p>{{ exposant.description }}</p>
+      </div>
+      <div
+        class="col-xs-12 coordonnees"
+        *ngIf="
+          exposant.telephone ||
+          exposant.portable ||
+          exposant.email ||
+          exposant.siteweb
+        "
+      >
+        <p *ngIf="exposant.telephone">
+          <span>Téléphone fixe: </span>{{ exposant.telephone }}
+        </p>
+        <p *ngIf="exposant.portable">
+          <span>Téléphone portable: </span>{{ exposant.portable }}
+        </p>
+        <p *ngIf="exposant.email"><span>Email: </span>{{ exposant.email }}</p>
+        <p *ngIf="exposant.siteweb">
+          <span>Site web: </span
+          ><a href="{{ exposant.siteweb }}" target="_blank">{{
+            exposant.siteweb
+          }}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-12">
         <button class="btn btn-default btn-retour" (click)="onBack()">
@@ -33,5 +72,5 @@
         <p class="lead">{{ exposant.description }}</p>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>

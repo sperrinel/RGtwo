@@ -9,11 +9,9 @@
   <body>
     <div class="container py-5">
       <header class="text-center text-white">
-        <h1 class="display-4">Les rencontres gourmandes 2021</h1>
-        <p class="lead mb-0 font-italic">Présentation des exposants.</p>
+        <h1 class="display-4">Les exposants</h1>
         <br />
       </header>
-
       <ul
         style="list-style: none"
         *ngFor="let exposant of exposants; let i = index"
@@ -40,12 +38,17 @@
                 <i class="fa fa-fw fa-edit"></i>
               </button>
               <h4
+                id="nomExposantList"
                 class="mb-4"
                 style="cursor: pointer"
                 [routerLink]="['/details/', i]"
               >
                 {{ exposant.nom }}
               </h4>
+              <h6>
+                <strong style="color: #c4cb00">Spécialité(s) : </strong
+                >{{ exposant.categorie }}
+              </h6>
               <ul class="list-unstyled list pl-5">
                 <div style="display: flex">
                   <li class="mb-3 d-flex align-items-center">
@@ -72,7 +75,12 @@
                       </li>
                     </div>
                     <div
-                      *ngIf="exposant.telephone || exposant.email"
+                      *ngIf="
+                        exposant.telephone ||
+                        exposant.email ||
+                        exposant.portable ||
+                        exposant.siteweb
+                      "
                       class="row h-25"
                       style="display: flex"
                     >
@@ -92,8 +100,17 @@
                         {{ exposant.portable }}
                       </span>
                       <span *ngIf="exposant.email" class="coordonnees-exposant">
-                        <i class="fa fa-fw fa-laptop"></i>
+                        <i class="fa fa-fw fa-send"></i>
                         {{ exposant.email }}
+                      </span>
+                      <span
+                        *ngIf="exposant.siteweb"
+                        class="coordonnees-exposant"
+                      >
+                        <i class="fa fa-fw fa-laptop"></i>
+                        <a href="{{ exposant.siteweb }}" target="_blank">{{
+                          exposant.siteweb
+                        }}</a>
                       </span>
                     </div>
                   </div>

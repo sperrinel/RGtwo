@@ -32,20 +32,24 @@ export class EditComponent implements OnInit {
   onSubmit(form: NgForm) {
     const id = this.exposant.id;
     const nom = form.value['nom'];
+    const categorie = form.value['categorie'];
     const description = form.value['description'];
     const image = this.fileUrl;
     const telephone = form.value['telephone'];
     const portable = form.value['portable'];
     const email = form.value['email'];
+    const siteweb = form.value['siteweb'];
 
     const exposant = new Exposant(
       id,
       nom,
+      categorie,
       description,
       image,
       telephone,
       portable,
-      email
+      email,
+      siteweb
     );
 
     this.exposantsService.updateExposant(this.idExposant, exposant);

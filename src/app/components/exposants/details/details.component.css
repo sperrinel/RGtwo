@@ -1,4 +1,58 @@
+.red {
+  background: #e40137;
+}
+
+body {
+  background: #c4cb00;
+}
+
 img {
-  height: 40%;
-  width: auto;
+  margin-top: 10%;
+  max-height: 300px;
+  min-height: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  margin: left 50%;
+  margin: right 50%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1600px) {
+  img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+p {
+  text-align: justify;
+}
+
+#div-description {
+  margin-top: 10%;
+}
+
+#label-description {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.coordonnees {
+  margin-bottom: 5%;
+}
+
+.container {
+  padding-right: 5%;
+  padding-left: 5%;
+  background: white;
+}
+
+/* -------------- btn -------------- */
+
+.btn-retour {
+  margin-top: 4%;
 }
