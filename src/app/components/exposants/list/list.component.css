@@ -91,6 +91,7 @@ li {
 .coordonnees-exposant {
   justify-content: center;
   width: auto;
+  margin: 0;
 }
 
 .fa {
@@ -116,7 +117,7 @@ h1 {
 }
 h4 {
   font-family: "Congratulations", "arial", sans-serif;
-  color: rgb(97 137 189);
+  color: rgb(97, 137, 189);
   font-size: 30px;
 }
 
@@ -145,4 +146,14 @@ i {
 
 span {
   margin: 0 auto;
+}
+
+h4:hover {
+  color: rgb(172, 176, 182);
+}
+
+@media screen and (min-width: 0px) and (max-width: 994px) {
+  .img-responsive {
+    align-items: center !important;
+  }
 }

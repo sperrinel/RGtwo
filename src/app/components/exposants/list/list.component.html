@@ -9,7 +9,7 @@
   <body>
     <div class="container py-5">
       <header class="text-center text-white">
-        <h1 class="display-4">Les exposants</h1>
+        <h1 class="display-4" id="labelExposantList">Les exposants</h1>
         <br />
       </header>
       <ul
@@ -51,7 +51,7 @@
               </h6>
               <ul class="list-unstyled list pl-5">
                 <div style="display: flex">
-                  <li class="mb-3 d-flex align-items-center">
+                  <li class="mb-3 d-flex align-items-baseline img-responsive;">
                     <!--  <i class="fa fa-inbox mr-3 text-primary"></i -->
                     <img
                       class="img-exposant"
@@ -71,7 +71,9 @@
                         "
                       >
                         <!-- <i class="fa fa-hourglass-end mr-3 text-primary"></i -->
-                        {{ exposant.description }}
+                        <p id="p-responsive">
+                          {{ exposant.description }}
+                        </p>
                       </li>
                     </div>
                     <div

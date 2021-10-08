@@ -1,0 +1,80 @@
+.container-infos {
+  background: white;
+  margin-top: 15%;
+  margin-bottom: 10%;
+  margin: 5%, 5%, 5%, 5%;
+}
+
+.container {
+  background: white;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+i {
+  font-size: 28px;
+  color: rgb(97 137 189);
+}
+
+#labelContact {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+body {
+  background-color: #c4cb00;
+  background-image: linear-gradient(to right, #c4cb00 0%, #e2e8bf 100%);
+}
+
+h1 {
+  color: #e40137;
+  margin-bottom: 12%;
+  text-align: center;
+}
+
+img {
+  display: inline;
+  max-width: 100px;
+  max-height: 100px;
+  height: auto;
+}
+
+.organisateur {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 995px) and (max-width: 5000px) {
+  #nomOrganisateur {
+    margin-left: -10%;
+  }
+}
+
+#nomOrganisateur {
+  font-size: 25px;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
+.bandeau-infos {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  background: #e40137;
+  color: white;
+  text-align: center;
+  margin-left: -25%;
+  margin-right: -25%;
+  padding: 2%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  #bandeau-infos {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}

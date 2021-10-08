@@ -15,13 +15,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './components/exposants/details/details.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { OnParleDeNousComponent } from './components/on-parle-de-nous/on-parle-de-nous.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { InfosPratiquesComponent } from './components/infos-pratiques/infos-pratiques.component';
+import { MentionsLegalesComponent } from './components/mentions-legales/mentions-legales.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'add', component: AddComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'infos', component: InfosPratiquesComponent },
+  { path: 'mentions-legales', component: MentionsLegalesComponent },
   { path: 'details/:index', component: DetailsComponent },
   { path: 'exposants', component: EditComponent },
   { path: 'articles', component: OnParleDeNousComponent },
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     DetailsComponent,
     FooterComponent,
     OnParleDeNousComponent,
-    ContactComponent,
+    InfosPratiquesComponent,
+    MentionsLegalesComponent,
   ],
   imports: [
     BrowserModule,

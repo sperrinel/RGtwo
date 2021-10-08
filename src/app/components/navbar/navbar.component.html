@@ -82,24 +82,27 @@
               >Contact</a
             >
           </li>
+          <li class="nav-item">
+            <a [routerLink]="['/infos']" class="nav-link">Infos utiles</a>
+          </li>
           <li class="nav-item" *ngIf="isAuth == false">
-            <a class="nav-link" [routerLink]="['/auth']" (click)="activeClass()"
+            <!-- <a class="nav-link" [routerLink]="['/auth']" (click)="activeClass()"
               >Se connecter</a
-            >
+            > -->
           </li>
           <li class="nav-item" *ngIf="isAuth == true">
-            <a
+            <!-- <a
               class="nav-link"
               style="color: rgb(3, 182, 41)"
               [routerLink]="['/add']"
               (click)="activeClass()"
               >Ajouter un exposant</a
-            >
+            > -->
           </li>
           <li class="nav-item" *ngIf="isAuth == true">
-            <button class="btn btn-primary" (click)="logout()">
+            <!-- <button class="btn btn-primary" (click)="logout()">
               Se déconnecter <i class="fa fa-fw fa-user"></i>
-            </button>
+            </button> -->
           </li>
         </ul>
       </div>
