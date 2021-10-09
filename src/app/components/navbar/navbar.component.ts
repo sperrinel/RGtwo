@@ -30,22 +30,20 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  activeClass() {
-    $('#mainMenu li a').on('click', function () {
+  activeClass(number : number) {
       $('#mainMenu li a.active').removeClass('active');
-      $(this).addClass('active');
-    });
+      $('#navItem'+number).addClass('active');
   }
 
   goToContact() {
-    $('#goToContact').click(function () {
+
       $('html,body').animate(
         {
           scrollTop: $('footer').offset().top,
         },
         'fast'
       );
-    });
+
     this.flashItem();
   }
 

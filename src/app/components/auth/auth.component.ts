@@ -59,6 +59,7 @@ export class AuthComponent implements OnInit {
         () => {
           this.router.navigate(['/home']);
           resolve();
+          this.authService.isAuth == true;
         },
         (error) => {
           this.errorMessage = error.toString();

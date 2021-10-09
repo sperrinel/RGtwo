@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/exposants/list/list.component';
 import { AddComponent } from './components/exposants/add/add.component';
 import { EditComponent } from './components/exposants/edit/edit.component';
-import { UpdateComponent } from './components/exposants/update/update.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -17,11 +16,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { OnParleDeNousComponent } from './components/on-parle-de-nous/on-parle-de-nous.component';
 import { InfosPratiquesComponent } from './components/infos-pratiques/infos-pratiques.component';
 import { MentionsLegalesComponent } from './components/mentions-legales/mentions-legales.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
-  { path: 'add', component: AddComponent },
+  { path: 'add', canActivate: [AuthGuard], component: AddComponent },
   { path: 'infos', component: InfosPratiquesComponent },
   { path: 'mentions-legales', component: MentionsLegalesComponent },
   { path: 'details/:index', component: DetailsComponent },
@@ -37,7 +37,6 @@ const appRoutes: Routes = [
     ListComponent,
     AddComponent,
     EditComponent,
-    UpdateComponent,
     AuthComponent,
     NotFoundComponent,
     NavbarComponent,
@@ -54,7 +53,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

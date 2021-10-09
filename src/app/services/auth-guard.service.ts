@@ -12,14 +12,16 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
+  ngOnInit(){
+
+  }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
+    | boolean| UrlTree| Observable<boolean | UrlTree>| Promise<boolean | UrlTree> {
+      console.log(this.authService.isAuth);
+
     if (this.authService.isAuth == true) {
       return true;
     } else {

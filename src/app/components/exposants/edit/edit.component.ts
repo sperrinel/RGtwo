@@ -70,7 +70,6 @@ export class EditComponent implements OnInit {
   }
 
   getExposantId(event: number) {
-    console.log('Jreçoit un index égal à : ' + event);
     this.exposantsService
       .getSingleExposant(event)
       .then((exposant: Exposant) => {
@@ -79,7 +78,6 @@ export class EditComponent implements OnInit {
         this.fileUrl = this.exposant.image;
         this.copieFileUrl = this.exposant.image;
         this.idExposant = event;
-        console.log('idExposant est égal à : ' + this.idExposant);
       });
   }
 }

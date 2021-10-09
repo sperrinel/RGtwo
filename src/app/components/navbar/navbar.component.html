@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <title>Document</title>
+    <title>Barre de navigation</title>
   </head>
   <body>
     <nav
@@ -36,8 +36,8 @@
       <button
         class="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
@@ -48,61 +48,76 @@
         <ul class="navbar-nav ms-auto" id="mainMenu">
           <li class="nav-item">
             <a
+            id="navItem1"
               class="nav-link active"
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
               [routerLink]="['/home']"
-              (click)="activeClass()"
+              (click)="activeClass(1)"
               >Accueil</a
             >
           </li>
           <li class="nav-item">
             <a
-              id="articlesss"
+              id="navItem2"
               class="nav-link"
               [routerLink]="['/articles']"
-              (click)="activeClass()"
+              (click)="activeClass(2)"
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
               >On parle de nous</a
             >
           </li>
           <li class="nav-item">
             <a
+            id="navItem3"
               class="nav-link"
               href="https://pays-de-loire.lepasseportgourmand.fr/"
               target="_blank"
-              (click)="activeClass()"
+              (click)="activeClass(3)"
               >Le Passeport Gourmand</a
             >
           </li>
           <li class="nav-item">
             <a
               style="cursor: pointer"
-              id="goToContact"
-              class="nav-link"
+              id="navItem4"
+              class="nav-link "
               (click)="goToContact()"
-              (click)="activeClass()"
+              (click)="activeClass(4)"
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
               >Contact</a
             >
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/infos']" class="nav-link">Infos utiles</a>
+            <a
+            id="navItem5"
+              [routerLink]="['/infos']"
+              class="nav-link"
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+              (click)="activeClass(5)"
+              >Infos utiles</a
+            >
           </li>
-          <li class="nav-item" *ngIf="isAuth == false">
-            <!-- <a class="nav-link" [routerLink]="['/auth']" (click)="activeClass()"
-              >Se connecter</a
-            > -->
-          </li>
+
           <li class="nav-item" *ngIf="isAuth == true">
-            <!-- <a
+            <a
+            id="navItem6"
               class="nav-link"
               style="color: rgb(3, 182, 41)"
               [routerLink]="['/add']"
-              (click)="activeClass()"
+              (click)="activeClass(6)" data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
               >Ajouter un exposant</a
-            > -->
+            >
           </li>
           <li class="nav-item" *ngIf="isAuth == true">
-            <!-- <button class="btn btn-primary" (click)="logout()">
+            <button class="btn btn-primary" (click)="logout()" data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show">
               Se déconnecter <i class="fa fa-fw fa-user"></i>
-            </button> -->
+            </button>
           </li>
         </ul>
       </div>
