@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/RGtwo",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/App.js"
+      }
+    ]
+  }
+}
