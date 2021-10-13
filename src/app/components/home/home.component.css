@@ -27,6 +27,12 @@ p {
   }
 }
 
+@media screen and (min-width: 0px) and (max-width: 376px) {
+  h1 {
+    text-align-last: center;
+  }
+}
+
 .btn {
   display: flex;
   margin: auto;
@@ -50,9 +56,10 @@ h4 {
 }
 
 h4,
-h1 {
+h1, h2{
   color: #e40137;
   text-align-last: center;
   margin-top: 10px;
   margin-bottom: 5%;
 }
+

@@ -108,7 +108,7 @@ h5 {
   margin-bottom: 20px;
 }
 
-h1 {
+h1, h2 {
   color: #e40137;
   text-align-last: left;
   margin-top: 10px;
@@ -155,5 +155,11 @@ h4:hover {
 @media screen and (min-width: 0px) and (max-width: 994px) {
   .img-responsive {
     align-items: center !important;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 376px) {
+  h1,h2 {
+    text-align-last: center;
   }
 }

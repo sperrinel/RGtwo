@@ -78,7 +78,7 @@ export class AuthComponent implements OnInit {
         'Une erreur liée à votre connexion internet est survenue.');
     } else {
       return (this.errorMessage =
-        "Une erreur s'est produite, vérifier votre saisie.");
+        "Une erreur s'est produite, vérifiez votre saisie.");
     }
   }
 }

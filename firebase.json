@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist/RGtwo",
+    "cleanUrls": true,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,7 +10,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/App.js"
+        "destination": "/index.html"
       }
     ]
   }

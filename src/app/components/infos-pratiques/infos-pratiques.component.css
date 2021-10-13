@@ -31,7 +31,6 @@ body {
 
 h1 {
   color: #e40137;
-  margin-top:10%;
   margin-bottom: 12%;
   text-align: center;
 }
@@ -74,8 +73,9 @@ h4 {
 }
 
 @media screen and (min-width: 0px) and (max-width: 769px) {
-  #bandeau-infos {
-    margin-left: 0%;
-    margin-right: 0%;
+  .bandeau-infos {
+    margin-bottom: 0!important;
+    margin-left: 0!important;
+    margin-right: 0!important;
   }
 }
