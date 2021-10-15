@@ -1,3 +1,7 @@
+body{
+  height: auto!important;
+}
+
 .width30 {
   width: 30%;
 }
@@ -26,17 +30,15 @@
 }
 .boxStyle {
   margin-top: 10%;
+  margin-bottom: 10%;
   padding: 20px;
   border-radius: 25px;
   border-top: 6px solid #3599dc;
   border-bottom: 6px solid #28a745;
 }
 
-.formBox {
-}
-
 body {
-  background: url("/assets/photos/addBackground.jpg") no-repeat center center
+  background: url("/assets/photos/rencontres-gourmandes-pornichet-addBackground.jpg") no-repeat center center
     fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;

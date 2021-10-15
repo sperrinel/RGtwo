@@ -5,7 +5,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
-  <meta name="description" content="" />
+  <meta name="description" content="Les rencontres gourmandes de Pornichet vous propose de découvrir une quarantaine d'exposants à la découverte de saveurs gourmandes pour agrémenter vos plats quotidien ou de fête avec des produits locaux et parfois atypiques.">
   <meta name="author" content="" />
   <link rel="icon" href="../../../../favicon.png" />
 
@@ -48,7 +48,7 @@
         <p *ngIf="exposant.email"><span>Email: </span>{{ exposant.email }}</p>
         <p *ngIf="exposant.siteweb">
           <span>Site web: </span
-          ><a href="{{ exposant.siteweb }}" target="_blank">{{
+          ><a href="{{ exposant.siteweb }}" target="_blank" rel="noopener">{{
             exposant.siteweb
           }}</a>
         </p>

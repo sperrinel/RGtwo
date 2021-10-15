@@ -22,3 +22,18 @@ i {
     margin-top: 15% !important;
   }
 }
+
+h1, h2{
+  text-align: center;
+}
+
+h1{
+  color:#e40137
+}
+
+h2{
+  color:#c4cb00
+}
+.titleOnParleDeNous{
+  margin-top:10%;
+}
